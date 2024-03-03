@@ -1,1 +1,1 @@
-export const FOUR_DAYS = 'four-days';
+export const FOUR_DAYS_ROUTE = 'four-days';

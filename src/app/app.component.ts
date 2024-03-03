@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FOUR_DAYS } from './constants/routes.constants';
+import { FOUR_DAYS_ROUTE } from './constants/routes.constants';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,5 @@ import { FOUR_DAYS } from './constants/routes.constants';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  protected readonly FOUR_DAYS = FOUR_DAYS;
+  protected readonly FOUR_DAYS = FOUR_DAYS_ROUTE;
 }
