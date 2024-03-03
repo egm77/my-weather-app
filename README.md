@@ -33,6 +33,10 @@ SPA create to get the current weather and the forecast weather
 * Create toast to show errors
 * Improve UX
 
+## Running project
+* `npm install`
+* `npm run start`
+
 ## Running unit tests
 
 TODO
