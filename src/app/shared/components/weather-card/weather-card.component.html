@@ -8,10 +8,14 @@
 
   <div class="weather-card__panel d-flex flex-column justify-content-center">
     <div class="d-flex align-items-center flex-wrap justify-content-center">
-      <img [alt]="weather.description" [src]="weather.icon" />
+      <img
+        *ngIf="weather.icon"
+        [alt]="weather.description"
+        [src]="weather.icon"
+      />
       <span class="weather-card__mainTemperature">{{ weather.temp }}°C</span>
     </div>
-    <div class="text-center text-capitalize mt-2">
+    <div class="text-center text-capitalize mt-2" *ngIf="weather.description">
       <span>{{ weather.description }}</span>
     </div>
   </div>
@@ -19,7 +23,7 @@
   <div
     class="weather-card__panel align-self-center align-items-center align-items-sm-end d-flex flex-column"
   >
-    <div>
+    <div *ngIf="weather.feels_like">
       <span
         >Feels like: <b>{{ weather.feels_like }}°</b></span
       >
