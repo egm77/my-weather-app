@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Weather } from '../../../../models/weather.interface';
 
 @Component({
@@ -8,4 +8,10 @@ import { Weather } from '../../../../models/weather.interface';
 })
 export class ForecastCardComponent {
   @Input() weather: Weather;
+  @Output() weatherSelected: EventEmitter<Weather> =
+    new EventEmitter<Weather>();
+
+  public onWeatherSelected(): void {
+    this.weatherSelected.emit(this.weather);
+  }
 }

@@ -13,6 +13,7 @@ export class ForecastWeatherComponent implements OnInit {
   public isLoading: boolean;
   public isError: boolean;
   public forecastList: Weather[];
+  public weatherSelected: Weather;
   constructor(
     private positionService: PositionService,
     private weatherService: WeatherApiService,
@@ -44,5 +45,9 @@ export class ForecastWeatherComponent implements OnInit {
           this.isError = true;
         },
       );
+  }
+
+  public onWeatherSelected(event: Weather): void {
+    this.weatherSelected = event;
   }
 }
