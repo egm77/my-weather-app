@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PositionService } from '../../core/services/position/position.service';
-import { WeatherApiService } from '../../api-layer/weather/api/weather-api.service';
-import { finalize, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Weather } from '../../models/weather.interface';
+import { ForecastWeatherService } from './services/forecast-weather.service';
 
 @Component({
   selector: 'app-forecast-weather',
@@ -10,41 +9,25 @@ import { Weather } from '../../models/weather.interface';
   styleUrls: ['./forecast-weather.component.scss'],
 })
 export class ForecastWeatherComponent implements OnInit {
-  public isLoading: boolean;
-  public isError: boolean;
-  public forecastList: Weather[];
   public weatherSelected: Weather;
-  constructor(
-    private positionService: PositionService,
-    private weatherService: WeatherApiService,
-  ) {}
+  constructor(private forecastWeatherService: ForecastWeatherService) {}
+
+  get isLoading$(): Observable<boolean> {
+    return this.forecastWeatherService.isLoading$;
+  }
+  get isError$(): Observable<boolean> {
+    return this.forecastWeatherService.isError$;
+  }
+  get forecastList$(): Observable<Weather[] | undefined> {
+    return this.forecastWeatherService.forecastWeather$;
+  }
 
   ngOnInit() {
     this.getForecastData();
   }
 
   private getForecastData(): void {
-    this.isLoading = true;
-    this.isError = false;
-    this.positionService
-      .getPosition()
-      .pipe(
-        finalize(() => (this.isLoading = false)),
-        switchMap((value) =>
-          this.weatherService.getForecastWeather(
-            value.latitude,
-            value.longitude,
-          ),
-        ),
-      )
-      .subscribe(
-        (value) => {
-          this.forecastList = value;
-        },
-        () => {
-          this.isError = true;
-        },
-      );
+    this.forecastWeatherService.getForecastWeather();
   }
 
   public onWeatherSelected(event: Weather): void {
