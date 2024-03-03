@@ -1,1 +1,18 @@
-<p>forecast-weather works!</p>
+<div
+  *ngIf="forecastList"
+  class="d-flex align-items-center flex-column forecast-weather"
+>
+  <ng-container *ngFor="let weather of forecastList | slice: 0 : 4">
+    <app-forecast-card></app-forecast-card>
+  </ng-container>
+</div>
+
+<div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="isError">
+  There is an error
+</div>

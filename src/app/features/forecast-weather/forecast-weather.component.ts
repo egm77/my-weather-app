@@ -12,7 +12,7 @@ import { Weather } from '../../models/weather.interface';
 export class ForecastWeatherComponent implements OnInit {
   public isLoading: boolean;
   public isError: boolean;
-  public forecastWeather: Weather[];
+  public forecastList: Weather[];
   constructor(
     private positionService: PositionService,
     private weatherService: WeatherApiService,
@@ -38,8 +38,7 @@ export class ForecastWeatherComponent implements OnInit {
       )
       .subscribe(
         (value) => {
-          this.forecastWeather = value;
-          console.log(this.forecastWeather);
+          this.forecastList = value;
         },
         () => {
           this.isError = true;
