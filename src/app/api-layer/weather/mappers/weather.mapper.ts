@@ -1,5 +1,6 @@
 import { Weather } from '../../../models/weather.interface';
 import { WeatherDto } from '../dtos/weather-dto';
+import { unixToDate } from '../../../shared/utils/unix-to-date';
 
 export function mapWeatherToDomain(weatherResponse: WeatherDto): Weather {
   return {
@@ -10,7 +11,7 @@ export function mapWeatherToDomain(weatherResponse: WeatherDto): Weather {
     temp: Math.round(weatherResponse.main.temp),
     temp_min: Math.round(weatherResponse.main.temp_min),
     feels_like: Math.round(weatherResponse.main.feels_like),
-    date: new Date(weatherResponse.dt),
+    date: unixToDate(weatherResponse.dt),
   };
 }
 

@@ -1,5 +1,6 @@
 import { ForecastDto, List } from '../dtos/forecast-dto';
 import { Weather } from '../../../models/weather.interface';
+import { unixToDate } from '../../../shared/utils/unix-to-date';
 
 export function mapForecastToDomain(forecastResponse: ForecastDto): Weather[] {
   const weatherByDate = groupByDate(forecastResponse.list);
@@ -9,7 +10,7 @@ export function mapForecastToDomain(forecastResponse: ForecastDto): Weather[] {
 function groupByDate(forecastList: List[]): List[][] {
   const map: Map<string, List[]> = new Map();
   forecastList.forEach((obj) => {
-    const date = getDate(obj.dt);
+    const date = unixToDate(obj.dt);
     const dateString = date.toDateString(); // Using toDateString() to remove time part
     if (dateString !== new Date().toDateString()) {
       if (!map.has(dateString)) {
@@ -24,7 +25,7 @@ function groupByDate(forecastList: List[]): List[][] {
 function mapForecast(groupedForecast: List[][], city: string): Weather[] {
   return groupedForecast.map((item) => {
     return {
-      date: getDate(item[0].dt),
+      date: unixToDate(item[0].dt),
       name: city,
       temp_min: Math.round(
         item.reduce((prev, curr) =>
@@ -43,8 +44,4 @@ function mapForecast(groupedForecast: List[][], city: string): Weather[] {
       ),
     };
   });
-}
-
-function getDate(unixDate: number): Date {
-  return new Date(unixDate * 1000);
 }

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { MOCK_FORECAST_RESPONSE } from './fixtures/forecast.fixture.specs';
+import { MOCK_FORECAST_RESPONSE } from './fixtures/forecast.fixture.spec';
 import { FORECAST_URL } from '../src/app/api-layer/weather/endpoints';
 import { FOUR_DAYS_ROUTE } from '../src/app/constants/routes.constants';
 
