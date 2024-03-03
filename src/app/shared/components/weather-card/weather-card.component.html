@@ -1,1 +1,38 @@
-<p>weather-card works!</p>
+<div class="weather-card p-3 d-flex w-100 flex-column flex-sm-row">
+  <div class="weather-card__panel">
+    <h5>
+      <span>{{ weather.name }}</span>
+    </h5>
+    <h6>{{ weather.date | date: "EEEE, MMMM d" }}</h6>
+  </div>
+
+  <div class="weather-card__panel d-flex flex-column justify-content-center">
+    <div class="d-flex align-items-center flex-wrap justify-content-center">
+      <img [alt]="weather.description" [src]="weather.icon" />
+      <span class="weather-card__mainTemperature">{{ weather.temp }}°C</span>
+    </div>
+    <div class="text-center text-capitalize mt-2">
+      <span>{{ weather.description }}</span>
+    </div>
+  </div>
+
+  <div
+    class="weather-card__panel align-self-center align-items-center align-items-sm-end d-flex flex-column"
+  >
+    <div>
+      <span
+        >Feels like: <b>{{ weather.feels_like }}°</b></span
+      >
+    </div>
+    <div>
+      <span
+        >High: <b>{{ weather.temp_max }}°</b>
+      </span>
+    </div>
+    <div>
+      <span
+        >Low: <b>{{ weather.temp_min }}°</b></span
+      >
+    </div>
+  </div>
+</div>

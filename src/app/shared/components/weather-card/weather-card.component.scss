@@ -1,5 +1,20 @@
 .weather-card {
-  display: flex;
+  background-color: #28688C;
+  box-shadow: 1px 5px 25px 3px #444;
+  border-radius: 10px;
+  max-width: 720px;
+  color: white;
+  gap: 8px;
+
+  &__panel {
+    flex: 1;
+  }
+
+  &__mainTemperature {
+    font-size: 48px;
+    line-height: 0.7;
+    font-weight: bold;
+  }
 }
 
 
