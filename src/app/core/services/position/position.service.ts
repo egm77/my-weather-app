@@ -9,13 +9,19 @@ export class PositionService {
   public getPosition(): Observable<Position> {
     return new Observable((observer: Subscriber<Position>) => {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          observer.next({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-          observer.complete();
-        });
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            observer.next({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            });
+            observer.complete();
+          },
+          () => {
+            observer.error();
+            observer.complete();
+          },
+        );
       } else {
         observer.error();
         observer.complete();
