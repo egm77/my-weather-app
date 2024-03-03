@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CurrentWeather } from '../../../models/current-weather.interface';
+import { Weather } from '../../../models/weather.interface';
 
 @Component({
   selector: 'app-weather-card',
@@ -7,5 +7,5 @@ import { CurrentWeather } from '../../../models/current-weather.interface';
   styleUrls: ['./weather-card.component.scss'],
 })
 export class WeatherCardComponent {
-  @Input() weather: CurrentWeather;
+  @Input() weather: Weather;
 }

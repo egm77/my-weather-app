@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { finalize, switchMap } from 'rxjs';
 import { PositionService } from '../../core/services/position/position.service';
 import { WeatherApiService } from '../../api-layer/weather/api/weather-api.service';
-import { CurrentWeather } from '../../models/current-weather.interface';
+import { Weather } from '../../models/weather.interface';
 
 @Component({
   selector: 'app-current-weather',
@@ -12,7 +12,7 @@ import { CurrentWeather } from '../../models/current-weather.interface';
 export class CurrentWeatherComponent implements OnInit {
   public isLoading: boolean;
   public isError: boolean;
-  public currentWeather: CurrentWeather;
+  public currentWeather: Weather;
   constructor(
     private positionService: PositionService,
     private weatherService: WeatherApiService,
@@ -39,7 +39,6 @@ export class CurrentWeatherComponent implements OnInit {
       .subscribe(
         (value) => {
           this.currentWeather = value;
-          console.log(this.currentWeather);
         },
         () => {
           this.isError = true;

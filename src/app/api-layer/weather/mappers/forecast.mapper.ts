@@ -1,9 +1,7 @@
 import { ForecastDto, List } from '../dtos/forecast-dto';
-import { CurrentWeather } from '../../../models/current-weather.interface';
+import { Weather } from '../../../models/weather.interface';
 
-export function mapForecastToDomain(
-  forecastResponse: ForecastDto,
-): CurrentWeather[] {
+export function mapForecastToDomain(forecastResponse: ForecastDto): Weather[] {
   const weatherByDate = groupByDate(forecastResponse.list);
   return mapForecast(weatherByDate, forecastResponse.city.name);
 }
@@ -23,10 +21,7 @@ function groupByDate(forecastList: List[]): List[][] {
   return Array.from(map.values());
 }
 
-function mapForecast(
-  groupedForecast: List[][],
-  city: string,
-): CurrentWeather[] {
+function mapForecast(groupedForecast: List[][], city: string): Weather[] {
   return groupedForecast.map((item) => {
     return {
       date: getDate(item[0].dt),

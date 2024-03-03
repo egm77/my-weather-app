@@ -1,4 +1,4 @@
-export interface CurrentWeather {
+export interface Weather {
   feels_like?: number;
   description?: string;
   icon?: string;
