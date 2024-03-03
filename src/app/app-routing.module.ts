@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FOUR_DAYS } from './constants/routes.constants';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'four-days',
+    path: FOUR_DAYS,
     loadChildren: () =>
       import('./features/forecast-weather/forecast-weather.module').then(
         (m) => m.ForecastWeatherModule,
