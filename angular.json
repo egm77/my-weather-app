@@ -20,7 +20,7 @@
             "outputPath": "dist/my-weather-app",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "baseHref": "my-weather-app",
+            "baseHref": "",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
