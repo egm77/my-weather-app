@@ -9,6 +9,13 @@ const routes: Routes = [
         (m) => m.CurrentWeatherModule,
       ),
   },
+  {
+    path: 'four-days',
+    loadChildren: () =>
+      import('./features/forecast-weather/forecast-weather.module').then(
+        (m) => m.ForecastWeatherModule,
+      ),
+  },
 ];
 
 @NgModule({
