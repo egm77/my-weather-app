@@ -1,5 +1,10 @@
 .forecast-weather {
   &__container {
     gap: 8px;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (width <= 720px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }

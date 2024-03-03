@@ -1,9 +1,13 @@
-<div class="weather-card p-3 d-flex w-100 flex-column flex-sm-row">
+<div class="weather-card p-3 d-flex w-100 flex-column flex-sm-row mx-3 mx-md-0">
   <div class="weather-card__panel">
-    <h5>
-      <span>{{ weather.name }}</span>
-    </h5>
-    <h6>{{ weather.date | date: "EEEE, MMMM d" }}</h6>
+    <div>
+      <span class="weather-card__location">
+        {{ weather.name }}
+      </span>
+    </div>
+    <div class="weather-card__date my-2">
+      <span> {{ weather.date | date: "EEEE, MMMM d" }}</span>
+    </div>
   </div>
 
   <div class="weather-card__panel d-flex flex-column justify-content-center">
