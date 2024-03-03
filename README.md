@@ -1,27 +1,43 @@
 # MyWeatherApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+SPA create to get the current weather and the forecast weather
 
-## Development server
+[Live demo](https://egm77.github.io/my-weather-app)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Criteria
+* I added linters during pre-commit hooks in order to have a kind of order and good practices applied in the code from the beginning.
+* I created an api layer to connect with the API and map the responses to our domain
+* I used https://app.quicktype.io/?l=ts to get the DTOs interfaces
+* I got the weather icons from the same weather service
+* I reused the weather card for current weather and forecast
+* I saved the last forecast request in localstore and call it again just if was not saved the same day. (TODO save location)
+* I deployed the application in Github pages to have a [Live demo](https://egm77.github.io/my-weather-app)
+* The application is responsive
+* In order to save time I implemented integration tests using Playwright to cover happy paths instead of unit tests
+* It would be good for the future manage data, errors and loading states using NxRx
+* I used BEM for styles
+* I used bootstrap styles
 
-## Code scaffolding
+## Linters
+(They are executed during the commit)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Eslint
+* Stylelint
+* Prettier
 
-## Build
+## TO DO list
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Add unit test
+* Move urls to environments files
+* Move components services to Ngrx State management
+* Create toast to show errors
+* Improve UX
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+TODO
 
-## Running end-to-end tests
+## Running integration tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `npm run test:playwright` to execute the integration tests. You have to have `npm run start` running
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
