@@ -8,6 +8,7 @@ import { Weather } from '../../../../models/weather.interface';
 })
 export class ForecastCardComponent {
   @Input() weather: Weather;
+  @Input() isSelectedCard: boolean;
   @Output() weatherSelected: EventEmitter<Weather> =
     new EventEmitter<Weather>();
 

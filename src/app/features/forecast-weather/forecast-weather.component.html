@@ -8,15 +8,16 @@
     <ng-container *ngFor="let weather of forecastList | slice: 0 : 4">
       <app-forecast-card
         [weather]="weather"
+        [isSelectedCard]="weatherSelected === weather"
         (weatherSelected)="onWeatherSelected($event)"
       ></app-forecast-card>
     </ng-container>
-    <app-weather-card
-      class="my-5"
-      *ngIf="weatherSelected"
-      [weather]="weatherSelected"
-    ></app-weather-card>
   </div>
+  <app-weather-card
+    class="my-5"
+    *ngIf="weatherSelected"
+    [weather]="weatherSelected"
+  ></app-weather-card>
 </div>
 
 <div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
