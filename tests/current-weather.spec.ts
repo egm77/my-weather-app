@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { WEATHER_URL } from '../src/app/api-layer/weather/endpoints';
 import { FOUR_DAYS_ROUTE } from '../src/app/constants/routes.constants';
-import { MOCK_CURRENT_FORECAST } from './fixtures/current-weather.fixture.spec';
+import { MOCK_CURRENT_FORECAST } from './fixtures/current-weather-response.fixture';
 
 test.describe('Current weather', () => {
   test.beforeEach(async ({ page }) => {
