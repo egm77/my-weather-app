@@ -1,1 +1,4 @@
-<p>current-weather works!</p>
+<app-weather-card
+  *ngIf="currentWeather"
+  [weather]="currentWeather"
+></app-weather-card>
