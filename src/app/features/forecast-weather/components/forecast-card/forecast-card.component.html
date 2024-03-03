@@ -1,1 +1,12 @@
-<p>forecast-card works!</p>
+<div class="forecast-card d-flex p-2">
+  <div class="d-flex flex-column">
+    <span>{{ weather.date | date: "MMMM d" }}</span>
+    <span>
+      <b>{{ weather.temp }}ºC</b></span
+    >
+  </div>
+  <div class="d-flex flex-column align-items-end">
+    <span>{{ weather.temp_min }}ºC</span>
+    <span>{{ weather.temp_max }}ºC</span>
+  </div>
+</div>

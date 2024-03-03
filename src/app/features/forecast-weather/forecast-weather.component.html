@@ -2,9 +2,13 @@
   *ngIf="forecastList"
   class="d-flex align-items-center flex-column forecast-weather"
 >
-  <ng-container *ngFor="let weather of forecastList | slice: 0 : 4">
-    <app-forecast-card></app-forecast-card>
-  </ng-container>
+  <div
+    class="d-flex justify-content-center m-4 forecast-weather__container flex-wrap"
+  >
+    <ng-container *ngFor="let weather of forecastList | slice: 0 : 4">
+      <app-forecast-card [weather]="weather"></app-forecast-card>
+    </ng-container>
+  </div>
 </div>
 
 <div *ngIf="isLoading" class="d-flex justify-content-center mt-5">

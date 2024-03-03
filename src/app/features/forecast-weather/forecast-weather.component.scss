@@ -1,3 +1,5 @@
 .forecast-weather {
-  display: inline;
+  &__container {
+    gap: 8px;
+  }
 }
