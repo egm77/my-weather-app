@@ -1,4 +1,17 @@
-<app-weather-card
-  *ngIf="currentWeather"
-  [weather]="currentWeather"
-></app-weather-card>
+<div class="d-flex justify-content-center">
+  <app-weather-card
+    class="my-5"
+    *ngIf="currentWeather"
+    [weather]="currentWeather"
+  ></app-weather-card>
+</div>
+
+<div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="isError">
+  There is an error
+</div>
